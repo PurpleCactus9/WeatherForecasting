@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct CityNameView: View {
+    
+    var city: String
+    var currentDate: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(city)
+                .font(.largeTitle)
+                .bold()
+            Text(currentDate)
+                .font(.title2)
+        }
     }
 }
 
 #Preview {
-    CityNameView()
+    CityNameView(city: "Tulsa", currentDate: "September 4, 2024")
 }
