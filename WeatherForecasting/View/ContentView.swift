@@ -10,12 +10,23 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer().frame(height:70)
+            
+            SearchHeaderView()
+            
+            CityNameView(city: "Tulsa", currentDate: "September 9, 2024")
+                .padding()
+            
+            CurrentWeatherView()
+                .padding(.bottom, 28)
+            ThreeDayForecast()
+            ThreeDayForecast()
+            ThreeDayForecast()
+            
+            Spacer()
         }
-        .padding()
+        .background(LinearGradient(gradient: Gradient(colors: [Color("ColorOne"), Color("ColorTwo")]), startPoint: .topLeading, endPoint: .bottomTrailing))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
