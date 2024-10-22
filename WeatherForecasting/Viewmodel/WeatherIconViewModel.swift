@@ -12,6 +12,8 @@ func WeatherIconViewModel(for conditionCode: Int) -> String {
     switch conditionCode {
     case 1000:
         return "sun.max.fill"
+    case 1003:
+        return "cloud.sun.fill"
     case 1006, 1009:
         return "cloud.fill"
     case 1030, 1135, 1147:
