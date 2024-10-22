@@ -26,7 +26,7 @@ struct ThreeDayForecast: View {
         }
         .padding(9)
         .padding(.horizontal, 20)
-        .background(RoundedRectangle(cornerRadius: 12).fill(LinearGradient(gradient: Gradient(colors:[Color("ColorOne"), Color("ColorTwo")]), startPoint: .topLeading, endPoint: .bottomTrailing)))
+        .background(RoundedRectangle(cornerRadius: 12).fill(LinearGradient(gradient: Gradient(colors:[Color("ColorThree"), Color("ColorOne")]), startPoint: .topLeading, endPoint: .bottomTrailing)))
         .shadow(color: Color.white.opacity(0.1), radius: 2, x: -2, y: -2)
         .shadow(color: Color.black.opacity(0.2), radius: 2, x: 2, y: 2)
         .padding(.horizontal, 10)

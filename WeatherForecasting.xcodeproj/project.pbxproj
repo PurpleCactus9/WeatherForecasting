@@ -18,6 +18,10 @@
 		7D8D13122C88A61D00AF2076 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D13112C88A61D00AF2076 /* SearchHeaderView.swift */; };
 		7D8D13142C88B0C700AF2076 /* CityNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D13132C88B0C700AF2076 /* CityNameView.swift */; };
 		7D8D13162C88B27E00AF2076 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D13152C88B27E00AF2076 /* CurrentWeatherView.swift */; };
+		7DCA98002CBD6F3400CF8424 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7DCA97FF2CBD6F3400CF8424 /* Lottie */; };
+		7DCA98022CBD6F3D00CF8424 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7DCA98012CBD6F3D00CF8424 /* Lottie */; };
+		7DCA98042CBD6F4700CF8424 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7DCA98032CBD6F4700CF8424 /* Lottie */; };
+		7DCA98062CBD703100CF8424 /* WeatherIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA98052CBD703100CF8424 /* WeatherIconViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,7 @@
 		7D8D13112C88A61D00AF2076 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		7D8D13132C88B0C700AF2076 /* CityNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameView.swift; sourceTree = "<group>"; };
 		7D8D13152C88B27E00AF2076 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		7DCA98052CBD703100CF8424 /* WeatherIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCA98002CBD6F3400CF8424 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCA98022CBD6F3D00CF8424 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCA98042CBD6F4700CF8424 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +148,7 @@
 		7D8D130E2C88A0E800AF2076 /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
+				7DCA98052CBD703100CF8424 /* WeatherIconViewModel.swift */,
 			);
 			path = Viewmodel;
 			sourceTree = "<group>";
@@ -251,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 7D8D12D82C88A09300AF2076;
+			packageReferences = (
+				7DCA97FE2CBD6F0900CF8424 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 7D8D12E22C88A09300AF2076 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCA98062CBD703100CF8424 /* WeatherIconViewModel.swift in Sources */,
 				7D8D12E72C88A09300AF2076 /* ContentView.swift in Sources */,
 				7D8D12E52C88A09300AF2076 /* WeatherForecastingApp.swift in Sources */,
 				7D830C8D2C8A02A700B9114F /* ThreeDayForecast.swift in Sources */,
@@ -622,6 +635,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7DCA97FE2CBD6F0900CF8424 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7DCA97FF2CBD6F3400CF8424 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DCA97FE2CBD6F0900CF8424 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		7DCA98012CBD6F3D00CF8424 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DCA97FE2CBD6F0900CF8424 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		7DCA98032CBD6F4700CF8424 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DCA97FE2CBD6F0900CF8424 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7D8D12D92C88A09300AF2076 /* Project object */;
 }
