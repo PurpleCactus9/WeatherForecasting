@@ -23,19 +23,19 @@ struct ThreeDayForecast: View {
     
     private func dailyCell(forecastDay: ForecastDay) -> some View {
         HStack {
-            Text("Day")
+            Text(dayOfWeek(for: forecastDay.date))
             
             Spacer()
             
-            Text("High: 92°F")
+            Text("High: \(Int(round(forecastDay.day.maxtemp_f)))°F")
             
             Spacer()
             
-            Text("Low: 65°F")
+            Text("Low: \(Int(round(forecastDay.day.mintemp_f)))°F")
             
             Spacer()
             
-            Image(systemName: "sun.max.fill")
+            Image(systemName: WeatherIconViewModel(for: forecastDay.day.condition.code))
         }
         .padding(9)
         .padding(.horizontal, 20)
@@ -44,6 +44,17 @@ struct ThreeDayForecast: View {
         .shadow(color: Color.black.opacity(0.2), radius: 2, x: 2, y: 2)
         .padding(.horizontal, 10)
 
+    }
+    
+    // Converts a data strings format ("yyyy-MM-dd") to the corresponding day of the week ("EEEE")
+    private func dayOfWeek(for dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: dateString) else {
+            return ""
+        }
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: date)
     }
 }
 
