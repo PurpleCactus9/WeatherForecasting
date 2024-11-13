@@ -18,7 +18,7 @@ class WeatherViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     private let apiKey = "ea9b0faa7a4a4a4c8f9153539241410"
-    private let defaultCity = "New York City"
+    private let defaultCity = "Tulsa"
     
     init() {
         fetchWeather(for: defaultCity)
@@ -27,7 +27,7 @@ class WeatherViewModel: ObservableObject {
     func fetchWeather(for cityName: String) {
         
         // Retrieves forecast for 3 days
-        let urlString = "https://api.weatherapi.com/v1/forecast.json?key=\(apiKey)&q\(cityName)&days=3"
+        let urlString = "https://api.weatherapi.com/v1/forecast.json?key=\(apiKey)&q=\(cityName)&days=3"
         
         // Sets error message if URL creation fails
         guard let url = URL(string: urlString) else {

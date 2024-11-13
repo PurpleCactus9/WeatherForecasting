@@ -8,7 +8,20 @@
 import SwiftUI
 
 struct ThreeDayForecast: View {
+    
+    var forecast: [ForecastDay]
+    
     var body: some View {
+        
+        LazyVStack {
+            
+            ForEach(forecast.prefix(3), id:\.date) { ForecastDay in
+                dailyCell(forecastDay: ForecastDay)
+            }
+            }
+        }
+    
+    private func dailyCell(forecastDay: ForecastDay) -> some View {
         HStack {
             Text("Day")
             
@@ -34,6 +47,6 @@ struct ThreeDayForecast: View {
     }
 }
 
-#Preview {
-    ThreeDayForecast()
-}
+//#Preview {
+//    ThreeDayForecast()
+//}

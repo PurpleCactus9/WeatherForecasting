@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var viewModel = WeatherViewModel()
+    
+    @State private var cityName = "Tulsa"
+    
     var body: some View {
         VStack {
             Spacer().frame(height:70)
@@ -19,9 +24,13 @@ struct ContentView: View {
             
             CurrentWeatherView()
                 .padding(.bottom, 28)
-            ThreeDayForecast()
-            ThreeDayForecast()
-            ThreeDayForecast()
+            
+            if let weather = viewModel.weatherResponse {
+                ThreeDayForecast(forecast: weather.forecast.forecastday)
+                    .padding(.top, 20)
+            } else {
+                Text("Loading forecast...")
+            }
             
             Spacer()
         }
