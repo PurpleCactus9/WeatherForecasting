@@ -9,18 +9,27 @@ import SwiftUI
 
 struct SearchHeaderView: View {
     
-    @State private var cityName = "Tulsa"
+    @State private var cityName = ""
+    
+    var fetchWeather: (String) -> Void
     
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .padding(.leading, 10)
             
-            ZStack {
+            ZStack(alignment: .leading) {
+                if cityName.isEmpty {
+                    Text("Enter city name")
+                        .foregroundColor(.white.opacity(0.8))
+                        .padding(.leading, 5)
+                }
                 // Creates an area for user input, binds the text to the cityName variable.
-                TextField("", text: $cityName)
+                TextField("", text: $cityName, onCommit: {
+                    fetchWeather(cityName)})
+                }
                     .padding(.leading, 5)
-            }
+            
             
             Image(systemName: "location.fill")
                 .padding(.trailing, 5)
@@ -35,6 +44,6 @@ struct SearchHeaderView: View {
     }
 }
 
-#Preview {
-    SearchHeaderView()
-}
+//#Preview {
+//    SearchHeaderView()
+//}

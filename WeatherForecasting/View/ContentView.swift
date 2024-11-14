@@ -17,13 +17,22 @@ struct ContentView: View {
         VStack {
             Spacer().frame(height:70)
             
-            SearchHeaderView()
+            SearchHeaderView(fetchWeather: {
+                cityName in
+                viewModel.fetchWeather(for: cityName)
+            })
             
-            CityNameView(city: "Tulsa", currentDate: "September 9, 2024")
-                .padding()
+            if let city = viewModel.weatherResponse?.location.name {
+                CityNameView(city: city)
+            }
             
-            CurrentWeatherView()
-                .padding(.bottom, 28)
+            if let errorMessage = viewModel.errorMessage {
+                Text(errorMessage)
+                    .foregroundColor(.red)
+                    .padding()
+            } else {
+                CurrentWeatherView(weather:viewModel.weatherResponse)
+            }
             
             if let weather = viewModel.weatherResponse {
                 ThreeDayForecast(forecast: weather.forecast.forecastday)

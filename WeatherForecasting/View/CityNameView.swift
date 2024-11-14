@@ -12,6 +12,11 @@ struct CityNameView: View {
     var city: String
     var currentDate: String
     
+    init(city: String) {
+        self.city = city
+        self.currentDate = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
+    }
+    
     var body: some View {
         VStack {
             Text(city)
@@ -23,6 +28,6 @@ struct CityNameView: View {
     }
 }
 
-#Preview {
-    CityNameView(city: "Tulsa", currentDate: "September 4, 2024")
-}
+//#Preview {
+//    CityNameView(city: "Tulsa", currentDate: "September 4, 2024")
+//}

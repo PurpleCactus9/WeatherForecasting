@@ -9,59 +9,62 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     
+    var weather: WeatherResponse?
+    
     var body: some View {
         VStack {
             Text("Current Weather")
                 .font(.system(size: 36))
                 .bold()
-            
-            HStack(spacing: 20) {
-                Color.gray
-                    .frame(width: 100, height: 100)
-                
-                VStack(alignment: .trailing) {
-                    Text("Temperature °F")
-                        .font(.system(size: 30))
-                    Text("Conditions")
+            if let weather = weather {
+                HStack(spacing: 20) {
+                    LottieView(loopMode: .loop, animationName: WeatherAnimationViewModel(for: weather.current.condition.code))
+                        .frame(width: 150, height: 150)
+                    
+                    VStack(alignment: .trailing) {
+                        Text("\(Int(round(weather.current.temp_f))) °F")
+                            .font(.system(size: 30))
+                        Text(weather.current.condition.text)
+                    }
                 }
-            }
-            
-            HStack {
-                VStack {
-                    Image(systemName: "wind")
-                        .frame(width: 60, height:60)
-                        .font(.system(size: 50))
-                        .foregroundColor(.green)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                    Text("Wind Speed:\n10mph")
-                        .multilineTextAlignment(.center)
+                
+                HStack {
+                    VStack {
+                        Image(systemName: "wind")
+                            .frame(width: 60, height:60)
+                            .font(.system(size: 50))
+                            .foregroundColor(.green)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                        Text("Wind Speed:\n\(Int(round(weather.current.wind_mph))) mph")
+                            .multilineTextAlignment(.center)
+                        
+                    }
+                    Spacer()
+                    VStack {
+                        Image(systemName: "arrow.left.arrow.right")
+                            .frame(width: 60, height:60)
+                            .font(.system(size: 50))
+                            .foregroundColor(.red)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                        Text("Wind Direction:\n \(weather.current.wind_dir)")
+                            .multilineTextAlignment(.center)
+                    }
+                    Spacer()
+                    VStack {
+                        Image(systemName: "drop")
+                            .frame(width: 60, height:60)
+                            .font(.system(size: 50))
+                            .foregroundColor(.blue)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                        Text("Humidity:\n\(weather.current.humidity)%")
+                            .multilineTextAlignment(.center)
+                        
+                    }
                     
                 }
-                Spacer()
-                VStack {
-                    Image(systemName: "arrow.left.arrow.right")
-                        .frame(width: 60, height:60)
-                        .font(.system(size: 50))
-                        .foregroundColor(.red)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                    Text("Wind Direction:\n S")
-                        .multilineTextAlignment(.center)
-                }
-                Spacer()
-                VStack {
-                    Image(systemName: "drop")
-                        .frame(width: 60, height:60)
-                        .font(.system(size: 50))
-                        .foregroundColor(.blue)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                    Text("Humidity:\n20%")
-                        .multilineTextAlignment(.center)
-                
-                }
-                
             }
         }
         
@@ -73,5 +76,5 @@ struct CurrentWeatherView: View {
 }
 
 #Preview {
-    CurrentWeatherView()
+    ContentView()
 }
